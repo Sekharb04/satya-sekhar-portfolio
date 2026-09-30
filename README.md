@@ -1,31 +1,53 @@
-# Satya Sekhar — AI & Machine Learning Portfolio
+# Satya Sekhar | Portfolio
 
-This portfolio is a content-adapted version of the supplied sample portfolio.
+A personal portfolio presenting my work in artificial intelligence, machine learning, data analytics and web development. It includes project links, experience, profile information, a downloadable resume, and a contact form.
 
-## Files
+## Featured Projects
 
-- `index.html` — portfolio content and structure
-- `styles.css` — main visual system and responsive layout
-- `theme.css` — dark-mode theme and theme toggle styling
-- `script.js` — scroll reveal, 3D hero interaction, card tilt, and theme toggle
+- [Student Complaint Management System](https://github.com/Sekharb04/scms-project)
+- [Text Summarizer](https://github.com/Sekharb04/Text-Summarizer)
+- [IMDb Sentiment Analysis](https://github.com/Sekharb04/IMDB_Sentiment_Analysis)
+- [DeepFake Detection](https://github.com/Sekharb04/DeepFake_Detection)
+- [Homely hub Project](https://github.com/Sekharb04/WSA_Internship_Project)
 
-## Run locally
+## Built With
 
-Open `index.html` directly in a browser, or use VS Code Live Server.
+- HTML, CSS, and JavaScript for the portfolio interface
+- Node.js and Express for local hosting and the contact API
+- Nodemailer for sending contact form messages through SMTP
 
-## Personal data used
+## Run Locally
 
-The portfolio content is based on the supplied resume PDF:
-- Name/contact details
-- Projects
-- Internship experience
-- Education
-- Technical skills
-- Certifications
-- Soft skills
+Install dependencies and start the Express server:
 
-No project repository URLs were invented because the resume only supplied the GitHub profile URL.
+```sh
+npm install
+npm start
+```
 
-## Important
+Then open [http://localhost:3000](http://localhost:3000). You can also open `index.html` directly for a visual preview, but sending contact form messages requires the server and SMTP configuration below.
 
-Certificate images were not included because the supplied resume contains certificate names/dates but no certificate image files. The certification section therefore uses the same visual language without inventing image assets.
+## Configure Contact Form Email
+
+Create a `.env` file in the project root with your SMTP settings:
+
+```env
+SMTP_USER=your-sending-email@example.com
+SMTP_PASS=your-smtp-password
+SMTP_TO=your-inbox@example.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+```
+
+`SMTP_USER`, `SMTP_PASS`, and `SMTP_TO` are required. The host and port default to Gmail SMTP on port 587. For Gmail, use an app password where required. Keep `.env` private; it is excluded from Git.
+
+The contact form currently sends to `http://127.0.0.1:3000/api/contact`. Update the frontend endpoint and the server's allowed CORS origins before deploying the form to a different host.
+
+## Project Structure
+
+- `index.html` — page structure and portfolio content
+- `styles.css` — layout, components, and responsive styles
+- `theme.css` — dark theme styles, loaded by the client script
+- `script.js` — interactions, including reveal effects, card tilt, theme switching, and contact submission
+- `server.js` — Express static server and `/api/contact` endpoint
+- `assets/` — resume and certificate assets
